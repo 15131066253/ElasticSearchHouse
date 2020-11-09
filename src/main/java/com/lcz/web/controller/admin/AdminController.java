@@ -1,5 +1,6 @@
 package com.lcz.web.controller.admin;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
@@ -121,27 +122,27 @@ public class AdminController {
 	public String addHousePage() {
 		return "admin/house-add";
 	}
-//	/**
-//     * 本地上传图片接口
-//     * @param file
-//     * @return
-//     */
-//    @PostMapping(value = "admin/upload/photo", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-//    @ResponseBody
-//    public ApiResponse uploadPhoto(@RequestParam("file") MultipartFile file) {
-//        if (file.isEmpty()) {
-//            return ApiResponse.ofStatus(ApiResponse.Status.NOT_VALID_PARAM);
-//        }
-//        String fileName=file.getOriginalFilename();
-//        File target=new File("D:\\tmp\\"+fileName);
-//        try {
-//			file.transferTo(target);
-//		} catch (IllegalStateException | IOException e) {
-//			e.printStackTrace();
-//			return ApiResponse.ofStatus(ApiResponse.Status.INTERNAL_SERVER_ERROR);
-//		}
-//        return ApiResponse.ofSuccess(null);
-//    }
+	/**
+     * 本地上传图片接口 测试
+     * @param file
+     * @return
+     */
+    @PostMapping(value = "admin/upload/photo", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @ResponseBody
+    public ApiResponse uploadPhoto2(@RequestParam("file") MultipartFile file) {
+        if (file.isEmpty()) {
+            return ApiResponse.ofStatus(ApiResponse.Status.NOT_VALID_PARAM);
+        }
+        String fileName=file.getOriginalFilename();
+        File target=new File("D:\\tmp\\"+fileName);
+        try {
+			file.transferTo(target);
+		} catch (IllegalStateException | IOException e) {
+			e.printStackTrace();
+			return ApiResponse.ofStatus(ApiResponse.Status.INTERNAL_SERVER_ERROR);
+		}
+        return ApiResponse.ofSuccess(null);
+    }
 	
 	/**
      * 上传图片接口

@@ -1,10 +1,8 @@
 package com.lcz.security;
-
-import java.util.Objects;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.elasticsearch.common.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -46,7 +44,7 @@ public class AuthFilter extends UsernamePasswordAuthenticationFilter {
         User user = userService.findUserByTelephone(telephone);
         String inputCode = request.getParameter("smsCode");
         String sessionCode = smsService.getSmsCode(telephone);
-        if (Objects.equals(inputCode, sessionCode)) {
+        if (StringUtils.equals(inputCode, sessionCode)) {
             if (user == null) { // 如果用户第一次用手机登录 则自动注册该用户
                 user = userService.addUserByPhone(telephone);
             }

@@ -1,0 +1,36 @@
+elasticsearch:
+    cluster:
+        name: lcz
+    host: 127.0.0.1
+    port: 9300
+logging:
+    level:
+        com:
+            lcz:
+                service:
+                    search: debugs
+spring:
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        password: 123456
+        url: jdbc:mysql://10.11.14.12:3306/house?characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+        username: root
+    http:
+        multipart:
+            enabled: true
+            file-size-threshold: 5MB
+            location: D:\tmp\
+            max-request-size: 20MB
+    kafka:
+        bootstrap-servers: 127.0.0.1:9092
+        consumer:
+            group-id: xunwu
+    redis:
+        database: 0
+        host: 127.0.0.1
+        pool:
+            min-idle: 1
+        port: 6379
+        timeout: 3000
+    thymeleaf:
+        cache: false

@@ -53,6 +53,7 @@ public class HomeController {
 	public String logoutPage() {
 		return "logout";
 	}
+
 	 @GetMapping(value = "sms/code")
 	    @ResponseBody
 	    public ApiResponse smsCode(@RequestParam("telephone") String telephone) {

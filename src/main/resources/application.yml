@@ -1,0 +1,37 @@
+aliyun:
+    sms:
+        accessKey: 'LTAI4GAmfnZjhV81Z5qqfYA3'
+        accessKeySecret: 'K2ly7s2ZL3U7zaCXcAGdKpTORY7MVf'
+        template:
+            code: 'SMS_205432202'
+logging:
+    level:
+        org:
+            hibernate:
+                SQL: debug
+qiniu:
+    AccessKey: '**'
+    Bucket: lakes
+    SecretKey: '**'
+    cdn:
+        prefix: '*'
+security:
+    basic:
+        enabled: false
+server:
+    error:
+        whitelabel:
+            enabled: false
+spring:
+    jpa:
+        hibernate:
+            ddl-auto: validate
+        show-sql: true
+    profiles:
+        active: dev
+    session:
+        store-type: redis
+    thymeleaf:
+        mode: HTML
+        prefix: classpath:/templates/
+        suffix: .html
